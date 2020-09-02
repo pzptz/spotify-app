@@ -1,0 +1,38 @@
+.loginscreen__button {
+  background-color: #1db954;
+  color: white;
+  display: inline-block;
+  border-radius: 30px;
+  padding: 15px 30px;
+  margin: 30px 0 80px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loginscreen__button:hover {
+    background-color: #1ed760;
+}
+
+.loginscreen__button:focus {
+    background-color: #1ed760;
+}
+
+.loginscreen__div {
+  margin: 0 auto;
+  max-width: 1400px;
+  min-height: 100vh;
+  padding: 80px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.loginscreen__h1 {
+  font-size: 30px;
+}

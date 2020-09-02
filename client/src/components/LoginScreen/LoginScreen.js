@@ -7,7 +7,7 @@ const LOGIN_URI =
 const LoginScreen = () => {
   return (
     <div className="loginscreen__div">
-      <h1>Spotify Profile</h1>
+      <h1 className="loginscreen__h1">Spotify Analytics</h1>
       <a className="loginscreen__button" href={LOGIN_URI}>Log In</a>
     </div>
   );
