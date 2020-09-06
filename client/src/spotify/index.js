@@ -53,15 +53,51 @@ export const getAccessToken = () => {
   const localAccessToken = getLocalAccessToken();
   const localRefreshToken = getLocalRefreshToken();
 
-  if(!localRefreshToken || localRefreshToken === "undefined") {
-      setLocalRefreshToken(refresh_token);
+  if (!localRefreshToken || localRefreshToken === "undefined") {
+    setLocalRefreshToken(refresh_token);
   }
 
   if (!localAccessToken || localAccessToken === "undefined") {
-      setLocalAccessToken(access_token);
-      return access_token;
+    setLocalAccessToken(access_token);
+    return access_token;
   }
   return localAccessToken;
 };
 
 export const token = getAccessToken();
+
+// API
+const headers = {
+  Authorization: `Bearer ${token}`,
+  "Content-Type": "application/json",
+};
+
+export const getUser = () => {
+  axios.get("https://api.spotify.com/v1/me", { headers });
+};
+
+const getTrackIds = (tracks) => {
+  tracks.map(({ track }) => track.id).join(",");
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+export const getAudioFeaturesForTracks = (tracks) => {
+  const ids = getTrackIds(tracks);
+  return axios.get(`https://api.spotify.com/v1/audio-features?ids=${ids}`, {
+    headers,
+  });
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/
+export const getAudioFeatures = (trackId) => {
+  axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, {
+    headers,
+  });
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/
+export const getAudioAnalysis = (trackId) => {
+  axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
+    headers,
+  });
+};
