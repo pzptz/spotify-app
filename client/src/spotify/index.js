@@ -76,6 +76,56 @@ export const getUser = () => {
   axios.get("https://api.spotify.com/v1/me", { headers });
 };
 
+// https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/
+export const getFollowing = () => {
+  axios.get("https://api.spotify.com/v1/me/following?type=artist", { headers });
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/
+export const getPlaylists = () => {
+  axios.get("https://api.spotify.com/v1/me/playlists", { headers });
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
+export const getTopArtistsLong = () => {
+  axios.get(
+    "https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term",
+    { headers }
+  );
+};
+
+// https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
+export const getTopTracksLong = () => {
+  axios.get(
+    "https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term",
+    { headers }
+  );
+};
+
+export const getUserInfo = () => {
+  return axios
+    .all([
+      getUser(),
+      getFollowing(),
+      getPlaylists(),
+      getTopArtistsLong(),
+      getTopTracksLong(),
+    ])
+    .then(
+      axios.spread(
+        (user, followedArtists, playlists, topArtists, topTracks) => {
+          return {
+            user: user.data,
+            followedArtists: followedArtists.data,
+            playlists: playlists.data,
+            topArtists: topArtists.data,
+            topTracks: topTracks.data,
+          };
+        }
+      )
+    );
+};
+
 const getTrackIds = (tracks) => {
   tracks.map(({ track }) => track.id).join(",");
 };
