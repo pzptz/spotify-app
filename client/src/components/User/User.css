@@ -1,0 +1,134 @@
+.user__main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+  min-width: 100vh;
+  padding: 80px;
+}
+
+.user__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+  position: relative;
+}
+
+.user__avatar {
+  width: 150px;
+  height: 150px;
+}
+
+.user__avatar img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.user__noavatar {
+  border: 2px solid currentColor;
+  border-radius: 100%;
+  padding: 30px;
+}
+
+.user__username {
+    text-decoration: none;
+}
+
+.user__name:hover {
+    color: #1ed760;
+}
+
+.user__name:focus {
+    color: #1ed760;
+}
+
+.user__name {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 20px 0 0;
+    color: #1db954;
+}
+
+.user__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .user__stat {
+    text-align: center;
+  }
+  
+  .user__number {
+    color: #1db954;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .user__numLablel {
+    color: #9b9b9b;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+  }
+  
+  .user__logoutbutton {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .user__logoutbutton:hover {
+    background-color: #1db954;
+    color: #ffffff;
+    border: #1ed760;
+  }
+  
+  .user__tracklist {
+  
+  }
+  
+  .user__tracklistHeading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      flex-direction: column;
+      position: relative;
+  }
+  
+  .user__tracklistHeading:h3 {
+  
+    display: inline-block;
+    margin: 0;
+  }
+  
+  .user__moreButton {
+    display: inline-block;
+    color: #000000;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    padding: 11px 24px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1);
+    text-align: center;
+    white-space: nowrap;
+  }
+  

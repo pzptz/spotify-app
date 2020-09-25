@@ -1,0 +1,71 @@
+.trackItem__trackContainer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+
+.trackItem__trackContainer:hover {
+  opacity: 0.5;
+}
+
+.trackItem__trackContainer:focus {
+  opacity: 0.5;
+}
+
+.trackItem__artwork {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  min-width: 50px;
+  margin-right: 50px;
+}
+
+.trackItem__meta {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 10px;
+}
+
+.trackItem__left {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1px;
+}
+
+.trackItem__right {
+}
+
+.trackItem__name {
+  margin-bottom: 5px;
+  border-bottom: 1px solid transparent;
+}
+
+.trackItem__name:hover {
+  border-bottom: 1px solid #000000;
+}
+
+.trackItem__name:focus {
+  border-bottom: 1px solid #000000;
+}
+
+.trackItem__album {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1px;
+  color: #9b9b9b;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.trackItem__duration {
+  color: #9b9b9b;
+  font-size: 14px;
+}
+
+li {
+  list-style-type: none;
+}

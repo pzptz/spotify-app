@@ -73,22 +73,24 @@ const headers = {
 };
 
 export const getUser = () => {
-  axios.get("https://api.spotify.com/v1/me", { headers });
+  return axios.get("https://api.spotify.com/v1/me", { headers });
 };
 
 // https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/
 export const getFollowing = () => {
-  axios.get("https://api.spotify.com/v1/me/following?type=artist", { headers });
+  return axios.get("https://api.spotify.com/v1/me/following?type=artist", {
+    headers,
+  });
 };
 
 // https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/
 export const getPlaylists = () => {
-  axios.get("https://api.spotify.com/v1/me/playlists", { headers });
+  return axios.get("https://api.spotify.com/v1/me/playlists", { headers });
 };
 
 // https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
 export const getTopArtistsLong = () => {
-  axios.get(
+  return axios.get(
     "https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term",
     { headers }
   );
@@ -96,7 +98,7 @@ export const getTopArtistsLong = () => {
 
 // https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
 export const getTopTracksLong = () => {
-  axios.get(
+  return axios.get(
     "https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term",
     { headers }
   );
@@ -114,6 +116,7 @@ export const getUserInfo = () => {
     .then(
       axios.spread(
         (user, followedArtists, playlists, topArtists, topTracks) => {
+          console.log(user, followedArtists, playlists, topTracks);
           return {
             user: user.data,
             followedArtists: followedArtists.data,
@@ -150,4 +153,42 @@ export const getAudioAnalysis = (trackId) => {
   axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
     headers,
   });
+};
+
+export const logout = () => {
+  window.localStorage.removeItem("spotify_token_timestamp");
+  window.localStorage.removeItem("spotify_access_token");
+  window.localStorage.removeItem("spotify_refresh_token");
+  window.open("http://localhost:3000", "_self");
+};
+
+export const getTrack = (trackId) =>
+  axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, { headers });
+
+export const getTrackAudioAnalysis = (trackId) =>
+  axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
+    headers,
+  });
+
+export const getTrackAudioFeatures = (trackId) =>
+  axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, {
+    headers,
+  });
+
+export const getTrackInfo = (trackId) => {
+  return axios
+    .all([
+      getTrack(trackId),
+      getTrackAudioAnalysis(trackId),
+      getTrackAudioFeatures(trackId),
+    ])
+    .then(
+      axios.spread((track, audioAnalysis, audioFeatures) => {
+        return {
+          track: track.data,
+          audioAnalysis: audioAnalysis.data,
+          audioFeatures: audioFeatures.data,
+        };
+      })
+    );
 };
