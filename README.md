@@ -10,10 +10,10 @@
 As a musician, I spend a lot of time listening to music on Spotify. I have frequently wanted to analyze and compare the statistics of my top songs, which is why I created this app.
 
 ## Screenshots
-
-![](./resources/SpotifyApp-SS4.PNG)
-![](./resources/SpotifyApp-SS2.PNG)
-![](./resources/SpotifyApp-SS1.PNG)
+#### Homescreen
+![](./resources/SpotifyApp-SS6.PNG)
+#### Analytics
+![](./resources/SpotifyApp-SS7.PNG)
 
 ## Terminologies Explained
 ### Song Analysis
@@ -40,6 +40,8 @@ Generally speaking, songs that are being played a lot now will have a higher pop
 
 **Segments**: Audio segments attempts to subdivide a song into many segments, with each segment containing a roughly consistent sound throughout its duration.
 
+**For more information about audio analysis, please visit this [link](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/).**
+
 ### Song Features
 **Acousticness**: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. 
 
@@ -55,6 +57,4 @@ Generally speaking, songs that are being played a lot now will have a higher pop
 
 **Valence**: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
 
-### Analysis
-
-For more information about audio analysis, please visit this [link](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/).
+**For more information about audio features, please visit this [link](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).**
