@@ -9,6 +9,9 @@
 ## Purpose
 As a musician, I spend a lot of time listening to music on Spotify. I have frequently wanted to analyze and compare the statistics of my top songs, which is why I created this app.
 
+## Demo
+[Demo link](https://www.youtube.com/watch?v=OSURBmSPYDU&feature=youtu.be)
+
 ## Screenshots
 #### Homescreen
 ![](./resources/SpotifyApp-SS6.PNG)
